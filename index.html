@@ -6,466 +6,8 @@
     <title>מרחב טיפולי - מטפל נפשי מוסמך</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #4a6f60; /* Deeper, more muted green */
-            --secondary-color: #d0e0d8; /* Softer, lighter green/gray */
-            --accent-color: #f8fbf9; /* Very subtle off-white */
-            --text-color: #2c3e50; /* Darker, slightly blueish gray */
-            --light-text: #7f8c8d; /* Muted gray */
-            --white: #ffffff;
-            --border-color: #e0e0e0; /* Light gray for borders */
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Assistant', sans-serif; /* Clean sans-serif for body */
-            line-height: 1.7; /* Slightly increased line-height */
-            color: var(--text-color);
-            background-color: var(--white);
-            font-weight: 300; /* Lighter default weight */
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1100px; /* Slightly narrower max-width */
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Merriweather', serif; /* Elegant serif for headings */
-            font-weight: 700; /* Bold serif */
-            margin-bottom: 1.2rem;
-            color: var(--primary-color);
-            line-height: 1.3;
-        }
-
-        h1 {
-            font-size: 2.8rem; /* Slightly larger */
-            font-weight: 700;
-        }
-
-        h2 {
-            font-size: 2rem; /* Slightly larger */
-            margin-top: 2.5rem; /* More space above section titles */
-            font-weight: 700;
-        }
-
-        h3 {
-           font-weight: 600; /* Use Assistant's heavier weight */
-           font-family: 'Assistant', sans-serif; /* Keep headings within cards sans-serif */
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            font-weight: 400; /* Ensure paragraphs are readable */
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 12px 28px; /* Slightly adjusted padding */
-            border-radius: 8px; /* Less rounded corners */
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Refined transition */
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            letter-spacing: 0.5px; /* Subtle letter spacing */
-        }
-
-        .btn:hover {
-            background-color: #3b5a4d; /* Darker shade for hover */
-            transform: translateY(-1px); /* More subtle lift */
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in-section {
-            opacity: 0; /* Start hidden */
-            animation: fadeIn 0.8s ease-out forwards;
-            /* Delay can be added per section using JS if needed, but CSS animation is simpler for now */
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%); /* Subtle gradient */
-            padding: 120px 0 100px 0; /* Adjusted padding */
-            text-align: center;
-        }
-
-        .hero h1 {
-            margin-bottom: 1.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--primary-color); /* Ensure heading color stands out */
-        }
-
-        .hero h2 {
-            font-family: 'Assistant', sans-serif; /* Use body font for subtitle */
-            font-weight: 400;
-            color: var(--light-text);
-            margin-bottom: 2.5rem; /* More space before button */
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 1.2rem; /* Slightly larger subtitle */
-        }
-        
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background-color: var(--accent-color);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller min width */
-            gap: 35px; /* Slightly increased gap */
-            margin-top: 40px;
-        }
-
-        .service-card {
-            background-color: var(--white);
-            padding: 35px; /* Increased padding */
-            border-radius: 8px; /* Match button radius */
-            border: 1px solid var(--border-color); /* Subtle border */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04); /* Softer shadow */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 7px 18px rgba(0,0,0,0.08); /* Slightly more pronounced shadow on hover */
-        }
-
-        .service-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            font-weight: 600; /* Ensure card titles are bold enough */
-        }
-        
-        /* Benefits Section */
-        .benefits {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-        
-        .benefits-list {
-            margin-top: 30px;
-        }
-        
-        .benefit-item {
-            display: flex;
-            margin-bottom: 30px;
-            align-items: flex-start;
-        }
-
-        .benefit-icon {
-            background-color: var(--secondary-color);
-            color: var(--primary-color); /* Color for the icon itself */
-            font-size: 1.5rem; /* Adjust icon size */
-            width: 60px; /* Slightly larger */
-            height: 60px;
-            border-radius: 12px; /* Rounded square */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 25px; /* More space */
-            flex-shrink: 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .benefit-text {
-            flex: 1;
-        }
-
-        .benefit-text h3 {
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-            font-weight: 600; /* Ensure bold enough */
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 80px 0;
-            background-color: var(--secondary-color); /* Use the updated secondary color */
-            text-align: center;
-        }
-
-        .cta h2 {
-            margin-bottom: 30px;
-            color: var(--primary-color); /* Ensure heading color */
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 40px auto 0 auto; /* Add margin top */
-            background-color: var(--white);
-            padding: 40px;
-            border-radius: 8px; /* Match other elements */
-            border: 1px solid var(--border-color); /* Add border */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.07); /* Refined shadow */
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: right;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text-color); /* Ensure label color */
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px; /* Adjust padding */
-            border: 1px solid var(--border-color); /* Use border color variable */
-            border-radius: 6px; /* Slightly less rounded */
-            font-size: 1rem;
-            font-family: 'Assistant', sans-serif; /* Ensure form uses body font */
-            background-color: #fdfdfd; /* Very light background for inputs */
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(74, 111, 96, 0.2); /* Subtle focus ring */
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .contact-info {
-            margin-top: 50px; /* Increased space */
-            display: flex;
-            justify-content: center;
-            gap: 40px; /* Increased gap */
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px; /* Increased gap */
-            font-size: 1.1rem;
-            color: var(--text-color); /* Use standard text color */
-        }
-
-        .contact-item span:first-child { /* Style the icon */
-           font-size: 1.4rem; /* Slightly larger icon */
-           color: var(--primary-color);
-           line-height: 1; /* Ensure icon aligns well */
-        }
-
-        .contact-item a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-        .contact-item a:hover {
-            color: #3b5a4d; /* Darker green on hover */
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 80px 0;
-            background-color: var(--accent-color);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px; /* Match service card gap */
-            margin-top: 40px;
-        }
-
-        .testimonial-card {
-            background-color: var(--white);
-            padding: 35px; /* Match service card padding */
-            border-radius: 8px; /* Match other elements */
-            border: 1px solid var(--border-color); /* Add border */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04); /* Match service card shadow */
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 25px; /* More space */
-            position: relative;
-            color: var(--light-text); /* Use lighter text for quote */
-            padding-right: 10px; /* Space for quote mark */
-        }
-
-        .testimonial-text::before {
-            content: '“'; /* Use typographic quote */
-            font-family: 'Merriweather', serif; /* Match heading font */
-            font-size: 4rem; /* Larger quote */
-            color: var(--secondary-color);
-            position: absolute;
-            top: -15px; /* Adjust position */
-            right: -15px; /* Adjust position */
-            opacity: 0.5; /* Slightly more visible */
-            line-height: 1;
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--primary-color);
-            font-family: 'Assistant', sans-serif; /* Use body font */
-            font-size: 1rem;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 80px 0;
-            background-color: var(--white);
-            max-width: 800px; /* Constrain width for readability */
-            margin: 0 auto; /* Center the FAQ section */
-        }
-
-        .faq-item {
-            margin-bottom: 25px; /* Increased spacing */
-            border-bottom: 1px solid var(--border-color); /* Use variable */
-            padding-bottom: 25px; /* Increased spacing */
-        }
-        .faq-item:last-child {
-            border-bottom: none; /* Remove border from last item */
-        }
-
-        .faq-question {
-            font-weight: 600;
-            margin-bottom: 15px; /* More space */
-            color: var(--primary-color);
-            font-size: 1.25rem; /* Slightly larger */
-            font-family: 'Assistant', sans-serif; /* Use body font */
-        }
-        .faq-answer p {
-            color: var(--light-text); /* Lighter text for answers */
-            margin-bottom: 0; /* Remove default bottom margin */
-        }
-
-        /* Footer */
-        footer {
-            background-color: #f1f1f1; /* Light gray background */
-            color: var(--light-text);
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 80px; /* Space above footer */
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .about-image {
-                order: -1; /* Move image above text on mobile */
-                margin-bottom: 30px; /* Add space below image */
-            }
-            
-            .hero {
-                padding: 60px 0;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h1 {
-                font-size: 2.2rem; /* Adjust heading sizes */
-            }
-            h2 {
-                font-size: 1.7rem;
-            }
-
-            .benefit-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .benefit-icon {
-                margin-left: 0;
-                margin-bottom: 15px;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px; /* Adjust gap */
-            }
-
-            .contact-form {
-                padding: 30px;
-            }
-
-            .services-grid,
-            .testimonials-grid {
-                 grid-template-columns: 1fr; /* Stack cards on smaller screens */
-            }
-
-            .hero {
-                padding: 80px 0 60px 0; /* Adjust hero padding */
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> /* Link to external CSS */
 </head>
 <body>
     <!-- Hero Section -->
@@ -670,26 +212,211 @@
         </div>
     </footer>
 
-    <script>
-        // Improved form handling with on-page message
-        const contactForm = document.getElementById('contactForm');
-        const formStatus = document.getElementById('form-status');
+    <script src="script.js"></script> /* Link to external JS */
+</body>
+</html>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>הצעד הראשון לקראת שינוי רגוע ושלו מתחיל כאן</h1>
+            <h2>גישה טיפולית עדינה ויעילה המותאמת לצרכים האישיים שלך</h2>
+            <a href="#contact" class="btn">צרו קשר לשיחת היכרות ראשונית</a>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about fade-in-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>נעים להכיר</h2>
+                    <p>
+                        שמי ישראל ישראלי, ואני מטפל נפשי מוסמך עם ניסיון רב בליווי אנשים בתהליכי שינוי וצמיחה אישית. אני מאמין שלכל אחד יש את הכוחות הפנימיים להתמודד עם אתגרי החיים ולהגיע לרווחה נפשית מלאה. אני כאן כדי להציע לכם מרחב בטוח ותומך ולסייע לכם למצוא את הדרך הייחודית שלכם אל עבר שיפור איכות החיים.
+                    </p>
+                    <p>
+                        במהלך שנות עבודתי, זכיתי ללוות אנשים רבים במסעותיהם האישיים, תוך הקשבה עמוקה והתאמת הגישה הטיפולית לצרכים הייחודיים של כל אחד. אני מאמין בקשר טיפולי חם ואמין כבסיס לשינוי משמעותי, ואני מחויב ליצור עבורכם סביבה מקבלת ותומכת.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="תמונת המטפל">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services fade-in-section" id="services">
+        <div class="container">
+            <h2>איתי תוכלו להתמודד עם...</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>הקלה במצבי מתח וחרדה</h3>
+                    <p>
+                        טיפול יעיל להפחתת תחושות מתח, חרדה ודאגות יומיומיות, המאפשר לכם לחוות רוגע ושליטה רבים יותר בחיי היום-יום.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>התמודדות עם שינויים ומשברים</h3>
+                    <p>
+                        תמיכה וכלים להתמודדות עם שינויים משמעותיים בחיים, משברים אישיים ותקופות מאתגרות, תוך בניית חוסן נפשי.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>העצמה וחיזוק הביטחון העצמי</h3>
+                    <p>
+                        מסע אישי להעצמה, חיזוק הביטחון העצמי ושיפור תחושת הערך העצמי, המאפשר לכם לממש את הפוטנציאל האישי שלכם.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <h3>שיפור איכות השינה</h3>
+                    <p>
+                        עזרה בהשגת שינה טובה ואיכותית יותר, הפחתת נדודי שינה וחוסר שקט, לשיפור הרווחה הכללית והאנרגיה היומיומית.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Benefits Section -->
+    <section class="benefits fade-in-section" id="benefits">
+        <div class="container">
+            <h2>היתרונות של הגישה הטיפולית שלי</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌱</div>
+                    <div class="benefit-text">
+                        <h3>חוויה של רוגע ושלווה עמוקים</h3>
+                        <p>
+                            הטיפול מאפשר לכם לחוות רוגע ושלווה עמוקים יותר בחיי היום-יום, ולפתח יכולת להשיג מצב זה באופן עצמאי.
+                        </p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌱</div>
+                    <div class="benefit-text">
+                        <h3>פיתוח כלים פנימיים יעילים</h3>
+                        <p>
+                            במהלך הטיפול תרכשו כלים פנימיים יעילים להתמודדות עם אתגרים רגשיים, שישרתו אתכם לאורך זמן גם לאחר סיום הטיפול.
+                        </p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌱</div>
+                    <div class="benefit-text">
+                        <h3>יצירת שינויים חיוביים ומתמשכים</h3>
+                        <p>
+                            הגישה הטיפולית שלי מכוונת ליצירת שינויים חיוביים ומתמשכים בתחושות ובהתנהגות, המשפיעים על כל תחומי החיים.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta fade-in-section" id="contact">
+        <div class="container">
+            <h2>מוכנים להתחיל?</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">שם מלא</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">מספר טלפון</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">כתובת אימייל</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">הודעה (אופציונלי)</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn">שלחו לי הודעה ואחזור אליכם בהקדם</button>
+                    <p id="form-status" style="margin-top: 15px; color: var(--primary-color); font-weight: bold; display: none;"></p>
+                </form>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📞</span> 
+                    <a href="tel:0501234567" style="color: var(--primary-color); text-decoration: none;">050-1234567</a>
+                </div>
+                <div class="contact-item">
+                    <span>✉️</span> 
+                    <a href="mailto:israel@israeli.com" style="color: var(--primary-color); text-decoration: none;">israel@israeli.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials fade-in-section" id="testimonials">
+        <div class="container">
+            <h2>מה מטופלים מספרים</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        הטיפול עזר לי מאוד להפחית את החרדה ולהרגיש הרבה יותר רגועה ושלווה. אני ממליצה בחום!
+                    </div>
+                    <div class="testimonial-author">ר.ל., תל אביב</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        הגעתי לטיפול בתקופה מאתגרת בחיי, והכלים שקיבלתי עזרו לי להתמודד עם המשבר ולצאת ממנו מחוזק.
+                    </div>
+                    <div class="testimonial-author">ד.כ., ירושלים</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        הגישה הרגישה והמקצועית יצרה עבורי מרחב בטוח לעבוד על הביטחון העצמי שלי. היום אני מרגישה שינוי משמעותי.
+                    </div>
+                    <div class="testimonial-author">ש.ג., חיפה</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq fade-in-section" id="faq">
+        <div class="container">
+            <h2>שאלות נפוצות</h2>
+            <div class="faq-item">
+                <div class="faq-question">כמה זמן נמשך תהליך טיפולי?</div>
+                <div class="faq-answer">
+                    <p>
+                        משך הטיפול משתנה בהתאם לצרכים האישיים של כל מטופל/ת ולמטרות הטיפול. ישנם אנשים שמרגישים שיפור משמעותי כבר לאחר מספר מפגשים, בעוד אחרים מעדיפים תהליך ארוך יותר. בפגישת ההיכרות נוכל לדבר על הציפיות והמטרות שלכם ולהעריך יחד את משך הטיפול המתאים.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">איך מתנהלת פגישת הטיפול הראשונה?</div>
+                <div class="faq-answer">
+                    <p>
+                        הפגישה הראשונה היא פגישת היכרות הדדית, בה אשמח להכיר אתכם ולשמוע על הסיבות שהביאו אתכם לפנות לטיפול. נדבר על הציפיות שלכם, נענה על שאלות שיש לכם, ונתחיל לבנות יחד את מסגרת הטיפול המתאימה ביותר עבורכם. זו הזדמנות עבורכם להרגיש אם יש התאמה בינינו ואם תרצו להמשיך בתהליך.
+                    </p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">האם הטיפול מתאים לכל אחד?</div>
+                <div class="faq-answer">
+                    <p>
+                        הגישה הטיפולית שלי מתאימה למגוון רחב של אנשים המחפשים שיפור ברווחה הנפשית שלהם. עם זאת, בפגישת ההיכרות נוכל להעריך יחד אם הטיפול שאני מציע/ה הוא המתאים ביותר עבורכם. במקרים מסוימים, אם אראה שסוג טיפול אחר עשוי להתאים יותר לצרכים שלכם, אפנה אתכם לאיש מקצוע מתאים.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© כל הזכויות שמורות לישראל ישראלי 2025</p>
+        </div>
+    </footer>
 
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // In a real application, you would send the data to a server here.
-            // For this example, we just show the success message.
-            
-            formStatus.textContent = 'תודה על פנייתך! אחזור אליך בהקדם.';
-            formStatus.style.display = 'block';
-            contactForm.reset();
-
-            // Optional: Hide the message after a few seconds
-            setTimeout(() => {
-                formStatus.style.display = 'none';
-            }, 5000); // Hide after 5 seconds
-        });
-    </script>
+    <script src="script.js"></script> /* Link to external JS */
 </body>
 </html>
